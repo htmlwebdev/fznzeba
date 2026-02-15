@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Faizan & Zeba Khan - Wedding Celebration</title>
+    
+    <!-- Meta Tags for WhatsApp Sharing -->
+    <meta property="og:title" content="Mohammad Faizan & Zeba Khan - Wedding Celebration">
+    <meta property="og:description" content="Join us in celebrating the union of Mohammad Faizan and Zeba Khan. March 29-30, 2026">
+    <meta property="og:image" content="favicon.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mohammad Faizan & Zeba Khan - Wedding Celebration">
+    <meta name="twitter:description" content="Join us in celebrating the union of Mohammad Faizan and Zeba Khan">
+    <meta name="twitter:image" content="favicon.png">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="F & Z" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        :root {
+            --beige-primary: #F5F0E8;
+            --beige-secondary: #E8DCC8;
+            --gold: #D4AF37;
+            --gold-dark: #B8941F;
+            --gold-light: #F4E4B8;
+            --brown: #8B7355;
+            --brown-dark: #5C4A3A;
+            --text-dark: #2C2416;
+            --white: #FFFFFF;
+            --shadow: rgba(139, 115, 85, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Crimson Text', serif;
+            background-color: var(--beige-primary);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        
+        /* Ornate Pattern Background */
+        .ornate-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238B7355' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M30 30c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm-20 0c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px 12px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px var(--shadow);
+            backdrop-filter: blur(10px);
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: var(--brown);
+            font-family: 'Crimson Text', serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--white);
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+        
+        .lang-btn:hover:not(.active) {
+            background: var(--beige-secondary);
+        }
+        
+        /* Header Section */
+        .header {
+            position: relative;
+            padding: 80px 20px 60px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--beige-secondary) 0%, var(--beige-primary) 100%);
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        .logo-container {
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-placeholder {
+            background-image: url('favicon.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .ornate-divider {
+            margin: 30px auto;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .ornate-divider::before,
+        .ornate-divider::after {
+            content: '❖';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 12px;
+        }
+        
+        .ornate-divider::before { left: -10px; }
+        .ornate-divider::after { right: -10px; }
+        
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 8vw, 56px);
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .hindi-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: clamp(24px, 6vw, 40px);
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(18px, 4vw, 24px);
+            color: var(--brown);
+            font-style: italic;
+            margin-top: 10px;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        /* Event Cards */
+        .events-section {
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 6vw, 42px);
+            font-weight: 600;
+            color: var(--brown-dark);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .event-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .event-card:nth-child(2) { animation-delay: 0.2s; }
+        .event-card:nth-child(3) { animation-delay: 0.4s; }
+        
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(139, 115, 85, 0.25);
+        }
+        
+        .event-type {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--brown-dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .event-date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 10px;
+        }
+        
+        .event-time {
+            font-size: 20px;
+            color: var(--brown);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .event-time::before {
+            content: '🕐';
+            font-size: 24px;
+        }
+        
+        .event-venue {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .venue-name {
+            font-weight: 600;
+            color: var(--brown-dark);
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .directions-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Crimson Text', serif;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .directions-btn::before {
+            content: '📍';
+            font-size: 20px;
+        }
+        
+        .directions-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--white);
+            padding: 60px 20px;
+            margin: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px var(--shadow);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--beige-primary);
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin-bottom: 10px;
+        }
+        
+        .contact-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--brown-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-phone:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--white);
+        }
+        
+        .contact-phone::before {
+            content: '📞';
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--beige-secondary);
+            color: var(--brown);
+            font-size: 16px;
+        }
+        
+        .footer-ornament {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+            50% { transform: translateX(-50%) scale(1.1); opacity: 0.7; }
+        }
+        
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 100px 20px;
+            font-size: 20px;
+            color: var(--brown);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .loading-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .decorative-rings {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid transparent;
+            border-radius: 50%;
+            animation: expandRings 2s ease-out infinite;
+        }
+        
+        .ring-1 {
+            width: 80px;
+            height: 80px;
+            border-top-color: var(--gold);
+            border-right-color: var(--gold);
+            animation-delay: 0s;
+        }
+        
+        .ring-2 {
+            width: 120px;
+            height: 120px;
+            border-bottom-color: var(--gold-dark);
+            border-left-color: var(--gold-dark);
+            animation-delay: 0.6s;
+        }
+        
+        .ring-3 {
+            width: 160px;
+            height: 160px;
+            border-top-color: var(--gold-light);
+            border-right-color: var(--gold-light);
+            animation-delay: 1.2s;
+        }
+        
+        @keyframes expandRings {
+            0% {
+                width: 80px;
+                height: 80px;
+                opacity: 1;
+            }
+            100% {
+                width: 160px;
+                height: 160px;
+                opacity: 0;
+            }
+        }
+        
+        .loading-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+        }
+        
+        /* Hidden class for language toggle */
+        .hidden {
+            display: none !important;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .language-toggle {
+                top: 15px;
+                right: 15px;
+                padding: 6px 10px;
+            }
+            
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+            
+            .header {
+                padding: 60px 15px 40px;
+            }
+            
+            .logo-placeholder {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo-placeholder::before {
+                font-size: 40px;
+            }
+            
+            .event-card {
+                padding: 30px 20px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ornate-divider {
+                width: 150px;
+            }
+            
+            h1 {
+                letter-spacing: 1px;
+            }
+            
+            .event-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ornate-bg"></div>
+    
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="ur">اردو</button>
+    </div>
+    
+    <div class="container">
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="loading-container">
+                <div class="decorative-rings">
+                    <div class="ring ring-1"></div>
+                    <div class="ring ring-2"></div>
+                    <div class="ring ring-3"></div>
+                </div>
+                <div class="loading-text">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 24px; margin-top: 40px;">💍</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div id="main-content" class="hidden">
+            <!-- Header -->
+            <header class="header">
+                <div class="logo-container">
+                    <div class="logo-placeholder"></div>
+                </div>
+                
+                <div class="ornate-divider"></div>
+                
+                <h1 class="names-display" data-en="" data-ur=""></h1>
+                
+                <p class="subtitle wedding-invitation" data-en="You are cordially invited to celebrate our wedding" data-ur="ہماری شادی کی تقریب میں آپ کو خوش آمدید">
+                    You are cordially invited to celebrate our wedding
+                </p>
+            </header>
+            
+            <!-- Events Section -->
+            <section class="events-section">
+                <h2 class="section-title" data-en="Wedding Events" data-ur="شادی کی تقریبات">Wedding Events</h2>
+                
+                <!-- Baraat Card -->
+                <div class="event-card baraat-card">
+                    <span class="event-type" data-en="Baraat Ceremony" data-ur="بارات کی تقریب">Baraat Ceremony</span>
+                    <div class="event-date baraat-date"></div>
+                    <div class="event-time baraat-time"></div>
+                    <div class="event-venue">
+                        <span class="venue-name baraat-venue"></span>
+                    </div>
+                    <a href="#" class="directions-btn baraat-directions" target="_blank">
+                        <span data-en="Get Directions" data-ur="راستہ دیکھیں">Get Directions</span>
+                    </a>
+                </div>
+                
+                <!-- Reception Card -->
+                <div class="event-card reception-card">
+                    <span class="event-type" data-en="Reception" data-ur="ولیمہ">Reception</span>
+                    <div class="event-date reception-date"></div>
+                    <div class="event-time reception-time"></div>
+                    <div class="event-venue">
+                        <span class="venue-name reception-venue"></span>
+                    </div>
+                    <a href="#" class="directions-btn reception-directions" target="_blank">
+                        <span data-en="Get Directions" data-ur="راستہ دیکھیں">Get Directions</span>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <h2 class="section-title" data-en="Contact Us" data-ur="ہم سے رابطہ کریں">Contact Us</h2>
+                <p style="text-align: center; margin-bottom: 10px; color: var(--brown);">
+                    <span data-en="For any queries, please feel free to contact:" data-ur="کسی بھی سوال کے لیے، براہ کرم رابطہ کریں:">
+                        For any queries, please feel free to contact:
+                    </span>
+                </p>
+                
+                <div class="contact-grid" id="contact-grid">
+                    <!-- Contact cards will be dynamically generated here -->
+                </div>
+            </section>
+            
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-ornament">❦ ❦ ❦</div>
+                <p data-en="Looking forward to celebrating with you" data-ur="آپ کے ساتھ جشن منانے کے منتظر ہیں">
+                    Looking forward to celebrating with you
+                </p>
+            </footer>
+        </div>
+    </div>
+    
+    <script>
+        // Language state
+        let currentLang = 'en';
+        
+        // Google Sheets Configuration
+        const SHEET_ID = '1G7OKh0NmmLdOj9fzUqY9ogg4DCmdwEW1yYHBezlqzuQ';
+        const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?headers=0&tq=select%20*`;
+        
+        // Phone number formatter
+        function formatPhoneNumber(number) {
+            const cleaned = String(number).replace(/\D/g, '');
+            if (cleaned.length === 12 && cleaned.startsWith('91')) {
+                return `+${cleaned.slice(0, 2)} ${cleaned.slice(2, 7)} ${cleaned.slice(7)}`;
+            } else if (cleaned.length === 10) {
+                return `+91 ${cleaned.slice(0, 5)} ${cleaned.slice(5)}`;
+            }
+            return number;
+        }
+        
+        // Date formatter - handles multiple date formats
+        function formatDate(dateStr) {
+            try {
+                let date;
+
+                // Handle Google Sheets date serial number format
+                if (typeof dateStr === 'number') {
+                    // Google Sheets stores dates as serial numbers (days since 1900-01-01)
+                    const SHEETS_DATE_EPOCH = new Date(1899, 11, 30); // December 30, 1899
+                    date = new Date(SHEETS_DATE_EPOCH.getTime() + dateStr * 24 * 60 * 60 * 1000);
+                } else if (typeof dateStr === 'string') {
+                    // Handle Google Sheets Date(YYYY,M,D) format
+                    const dateMatch = dateStr.match(/^Date\((\d{4}),(\d{1,2}),(\d{1,2})\)$/);
+                    if (dateMatch) {
+                        const year = parseInt(dateMatch[1]);
+                        const month = parseInt(dateMatch[2]); // Already 0-indexed in this format
+                        const day = parseInt(dateMatch[3]);
+                        date = new Date(Date.UTC(year, month, day));
+                    }
+                    // Handle string format like "2026-03-29" or "3/29/2026"
+                    else if (dateStr.includes('-') && dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                        // YYYY-MM-DD format
+                        const [year, month, day] = dateStr.split('-');
+                        // Use UTC to avoid timezone issues
+                        date = new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day)));
+                    } else if (dateStr.includes('/')) {
+                        // MM/DD/YYYY format
+                        date = new Date(dateStr);
+                    } else {
+                        date = new Date(dateStr);
+                    }
+                } else {
+                    return 'Date TBD';
+                }
+                
+                if (isNaN(date.getTime())) {
+                    return 'Date TBD';
+                }
+                
+                const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+                return date.toLocaleDateString('en-US', options);
+            } catch (error) {
+                console.error('Error formatting date:', error);
+                return 'Date TBD';
+            }
+        }
+        
+        // Fetch wedding data from Google Sheets
+        function fetchWeddingData() {
+            $.ajax({
+                url: SHEET_URL,
+                type: 'GET',
+                dataType: 'text',
+                success: function(response) {
+                    try {
+                        // Parse the Google Sheets response
+                        const jsonData = JSON.parse(response.substring(47).slice(0, -2));
+                        const rows = jsonData.table.rows;
+                        
+                        if (rows && rows.length > 0) {
+                            // Convert transposed data (field_name, value) into an object
+                            const weddingData = {};
+                            rows.forEach((row, index) => {
+                                // Handle the case where cells might be empty
+                                const fieldName = row.c && row.c[0] ? row.c[0].v : '';
+                                const value = row.c && row.c[1] ? row.c[1].v : '';
+
+                                if (fieldName) {
+                                    weddingData[fieldName] = value;
+                                }
+                            });
+                            populateWeddingData(weddingData);
+                        } else {
+                            console.error('No data found in sheet');
+                            showError();
+                        }
+                    } catch (error) {
+                        console.error('Error parsing sheet data:', error);
+                        showError();
+                    }
+                },
+                error: function(error) {
+                    console.error('Error fetching data:', error);
+                    showError();
+                }
+            });
+        }
+        
+        // Populate the page with wedding data
+        function populateWeddingData(data) {
+            console.log('Wedding Data:', data);
+            // Names - with line breaks
+            const groom_bride_en = `${data.groom_name_en}<br>&<br>${data.bride_name_en}`;
+            const groom_bride_ur = `${data.groom_name_ur}<br>❤<br>${data.bride_name_ur}`;
+            
+            $('.names-display').attr('data-en', groom_bride_en);
+            $('.names-display').attr('data-ur', groom_bride_ur);
+            $('.names-display').html(groom_bride_en);
+            
+            // Baraat Event
+            $('.baraat-date').text(formatDate(data.baraat_date));
+            $('.baraat-time').text(data.baraat_time);
+            $('.baraat-venue').text(data.baraat_venue_en).attr('data-en', data.baraat_venue_en).attr('data-ur', data.baraat_venue_ur);
+            $('.baraat-directions').attr('href', data.baraat_map_url);
+            
+            // Reception Event
+            $('.reception-date').text(formatDate(data.reception_date));
+            $('.reception-time').text(data.reception_time);
+            $('.reception-venue').text(data.reception_venue_en).attr('data-en', data.reception_venue_en).attr('data-ur', data.reception_venue_ur);
+            $('.reception-directions').attr('href', data.reception_map_url);
+            
+            // Dynamically generate contact cards
+            const contactGrid = $('#contact-grid');
+            contactGrid.empty(); // Clear existing cards
+            
+            // Find all contacts (contact1_name, contact2_name, etc.)
+            const contactNumbers = new Set();
+            Object.keys(data).forEach(key => {
+                const match = key.match(/^contact(\d+)_name$/);
+                if (match) {
+                    contactNumbers.add(parseInt(match[1]));
+                }
+            });
+            
+            // Sort contact numbers and create cards
+            Array.from(contactNumbers).sort((a, b) => a - b).forEach(num => {
+                const nameKey = `contact${num}_name`;
+                const phoneKey = `contact${num}_phone`;
+                const name = data[nameKey] || '';
+                const phone = data[phoneKey] || '';
+                
+                if (name && phone) {
+                    const card = `
+                        <div class="contact-card">
+                            <div class="contact-icon">👤</div>
+                            <div class="contact-name">${name}</div>
+                            <a href="tel:+${phone}" class="contact-phone" dir="ltr">${formatPhoneNumber(phone)}</a>
+                        </div>
+                    `;
+                    contactGrid.append(card);
+                }
+            });
+            
+            // Hide loading and show content
+            $('#loading').addClass('hidden');
+            $('#main-content').removeClass('hidden');
+        }
+        
+        // Show error message
+        function showError() {
+            $('#loading .decorative-rings').hide();
+            $('#loading .loading-text p:first').hide();
+            $('#loading .loading-text p:last').text('Unable to load wedding details. Please check your internet connection and refresh the page.');
+        }
+        
+        // Language toggle functionality
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update active button
+            $('.lang-btn').removeClass('active');
+            $(`.lang-btn[data-lang="${lang}"]`).addClass('active');
+            
+            // Update all translatable elements
+            $('[data-en]').each(function() {
+                const $elem = $(this);
+                const text = $elem.attr(`data-${lang}`);
+                if (text) {
+                    // Use html() for names-display to preserve line breaks, text() for others
+                    if ($elem.hasClass('names-display')) {
+                        $elem.html(text);
+                    } else {
+                        $elem.text(text);
+                    }
+                }
+            });
+            
+            // Update HTML lang attribute and direction
+            if (lang === 'ur') {
+                $('html').attr('lang', 'ur').attr('dir', 'rtl');
+                $('.names-display').addClass('hindi-text');
+                // Prevent reversal of time and phone numbers in Urdu
+                $('.event-time, .contact-phone').attr('dir', 'ltr').css({
+                    'flex-direction': 'row',
+                    'justify-content': 'flex-start',
+                    'justify-self': 'right'
+                });
+            } else {
+                $('html').attr('lang', 'en').attr('dir', 'ltr');
+                $('.names-display').removeClass('hindi-text');
+                // Remove dir attribute and inline styles for English
+                $('.event-time, .contact-phone').removeAttr('dir').css({
+                    'flex-direction': '',
+                    'justify-content': '',
+                    'justify-self': ''
+                });
+            }
+        }
+        
+        // Event listeners
+        $(document).ready(function() {
+            // Language toggle buttons
+            $('.lang-btn').on('click', function() {
+                const lang = $(this).data('lang');
+                switchLanguage(lang);
+            });
+            
+            // Fetch wedding data on page load
+            fetchWeddingData();
+        });
+    </script>
+</body>
+</html>
