@@ -91,12 +91,7 @@
             border-radius: 50px;
             box-shadow: 0 4px 20px var(--shadow);
             backdrop-filter: blur(10px);
-            animation: slideInRight 0.8s ease-out, gentleFloat 3s ease-in-out infinite 1s;
-        }
-        
-        @keyframes gentleFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
+            animation: slideInRight 0.8s ease-out;
         }
         
         .lang-btn {
@@ -111,43 +106,22 @@
             transition: all 0.3s ease;
             border-radius: 20px;
             letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .lang-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            transform: translate(-50%, -50%);
-            transition: width 0.4s ease, height 0.4s ease;
-            z-index: -1;
-        }
-        
-        .lang-btn.active::before {
-            width: 150%;
-            height: 150%;
         }
         
         .lang-btn.active {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: var(--white);
             box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
         }
         
         .lang-btn:hover:not(.active) {
             background: var(--beige-secondary);
-            transform: scale(1.05);
         }
         
         /* Header Section */
         .header {
             position: relative;
-            padding: 100px 20px 80px;
+            padding: 80px 20px 60px;
             text-align: center;
             background: linear-gradient(180deg, var(--beige-secondary) 0%, var(--beige-primary) 100%);
             overflow: hidden;
@@ -161,25 +135,8 @@
             transform: translateX(-50%);
             width: 200%;
             height: 100%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite;
-        }
-        
-        .header::after {
-            content: '✦';
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 60px;
-            color: var(--gold);
-            opacity: 0.2;
-            animation: twinkle 2s ease-in-out infinite;
-        }
-        
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; transform: translateX(-50%) scale(1); }
-            50% { opacity: 0.5; transform: translateX(-50%) scale(1.2); }
         }
         
         .logo-container {
@@ -188,8 +145,8 @@
         }
         
         .logo-placeholder {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             margin: 0 auto 20px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--gold-light), var(--gold));
@@ -199,39 +156,6 @@
             box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
             position: relative;
             overflow: hidden;
-            animation: logoAppear 1.2s ease-out, logoFloat 4s ease-in-out infinite 1.2s;
-        }
-        
-        @keyframes logoAppear {
-            0% {
-                transform: scale(0) rotate(-180deg);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1) rotate(0deg);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
-        }
-        
-        .logo-placeholder::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 3s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
         .logo-placeholder {
@@ -241,17 +165,12 @@
         }
         
         .ornate-divider {
-            margin: 40px auto;
+            margin: 30px auto;
             width: 200px;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             position: relative;
-            animation: fadeIn 1.5s ease-out, dividerExpand 2s ease-out;
-        }
-        
-        @keyframes dividerExpand {
-            0% { width: 0; opacity: 0; }
-            100% { width: 200px; opacity: 1; }
+            animation: fadeIn 1.5s ease-out;
         }
         
         .ornate-divider::before,
@@ -261,17 +180,11 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--gold);
-            font-size: 14px;
-            animation: spin 4s linear infinite;
+            font-size: 12px;
         }
         
-        @keyframes spin {
-            0% { transform: translateY(-50%) rotate(0deg); }
-            100% { transform: translateY(-50%) rotate(360deg); }
-        }
-        
-        .ornate-divider::before { left: -12px; }
-        .ornate-divider::after { right: -12px; animation-direction: reverse; }
+        .ornate-divider::before { left: -10px; }
+        .ornate-divider::after { right: -10px; }
         
         h1 {
             font-family: 'Cormorant Garamond', serif;
@@ -282,23 +195,6 @@
             letter-spacing: 2px;
             line-height: 1.2;
             animation: fadeInUp 1s ease-out 0.3s both;
-            position: relative;
-        }
-        
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            animation: underlineExpand 1s ease-out 1.3s forwards;
-        }
-        
-        @keyframes underlineExpand {
-            to { width: 80%; }
         }
         
         .hindi-text {
@@ -313,98 +209,13 @@
             font-size: clamp(18px, 4vw, 24px);
             color: var(--brown);
             font-style: italic;
-            margin-top: 25px;
+            margin-top: 10px;
             animation: fadeInUp 1s ease-out 0.6s both;
         }
         
-        /* Countdown Timer */
-        .countdown-section {
-            background: linear-gradient(135deg, rgba(232, 220, 200, 0.4), rgba(244, 228, 184, 0.3));
-            padding: 40px 20px;
-            margin: 0;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .countdown-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(22px, 4.5vw, 28px);
-            font-weight: 600;
-            color: var(--brown-dark);
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .countdown-box {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 15px 12px;
-            min-width: 85px;
-            text-align: center;
-            box-shadow: 0 6px 20px var(--shadow);
-            border: 2px solid var(--gold-light);
-            transition: all 0.3s ease;
-            animation: popIn 0.6s ease-out backwards;
-            flex: 1;
-            max-width: 120px;
-        }
-        
-        .countdown-box:nth-child(1) { animation-delay: 0.8s; }
-        .countdown-box:nth-child(2) { animation-delay: 1s; }
-        .countdown-box:nth-child(3) { animation-delay: 1.2s; }
-        .countdown-box:nth-child(4) { animation-delay: 1.4s; }
-        
-        @keyframes popIn {
-            0% {
-                transform: scale(0);
-                opacity: 0;
-            }
-            70% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-        
-        .countdown-box:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 12px 35px rgba(139, 115, 85, 0.3);
-            border-color: var(--gold);
-        }
-        
-        .countdown-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(36px, 8vw, 42px);
-            font-weight: 700;
-            color: var(--gold-dark);
-            display: block;
-            line-height: 1;
-        }
-        
-        .countdown-label {
-            font-size: 13px;
-            color: var(--brown);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 8px;
-            font-weight: 600;
-        }
-        
-        /* Events Section */
+        /* Event Cards */
         .events-section {
-            padding: 80px 20px;
-            position: relative;
+            padding: 60px 20px;
         }
         
         .section-title {
@@ -413,7 +224,7 @@
             font-weight: 600;
             color: var(--brown-dark);
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             position: relative;
             animation: fadeInUp 1s ease-out;
         }
@@ -426,29 +237,22 @@
             background: var(--gold);
             margin: 15px auto 0;
             border-radius: 2px;
-            animation: expandWidth 1s ease-out;
-        }
-        
-        @keyframes expandWidth {
-            0% { width: 0; }
-            100% { width: 80px; }
         }
         
         .event-card {
             background: var(--white);
             border-radius: 20px;
-            padding: 45px 35px;
-            margin-bottom: 40px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
             box-shadow: 0 10px 40px var(--shadow);
             position: relative;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
             animation: fadeInUp 1s ease-out;
         }
         
-        .event-card:nth-child(even) {
-            animation-delay: 0.2s;
-        }
+        .event-card:nth-child(2) { animation-delay: 0.2s; }
+        .event-card:nth-child(3) { animation-delay: 0.4s; }
         
         .event-card::before {
             content: '';
@@ -460,35 +264,16 @@
             background: linear-gradient(90deg, var(--gold), var(--gold-dark));
         }
         
-        .event-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
-            transition: all 0.6s ease;
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        .event-card:hover::after {
-            opacity: 1;
-            top: -100%;
-            right: -100%;
-        }
-        
         .event-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(139, 115, 85, 0.35);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(139, 115, 85, 0.25);
         }
         
         .event-type {
             display: inline-block;
             background: linear-gradient(135deg, var(--gold-light), var(--gold));
             color: var(--brown-dark);
-            padding: 10px 24px;
+            padding: 8px 20px;
             border-radius: 50px;
             font-family: 'Cormorant Garamond', serif;
             font-size: 16px;
@@ -496,26 +281,6 @@
             letter-spacing: 1px;
             margin-bottom: 20px;
             text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .event-type::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-        }
-        
-        .event-card:hover .event-type::before {
-            width: 300px;
-            height: 300px;
         }
         
         .event-date {
@@ -523,7 +288,7 @@
             font-size: clamp(24px, 5vw, 32px);
             font-weight: 600;
             color: var(--brown-dark);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .event-time {
@@ -538,26 +303,20 @@
         .event-time::before {
             content: '🕐';
             font-size: 24px;
-            animation: tickTock 2s ease-in-out infinite;
-        }
-        
-        @keyframes tickTock {
-            0%, 100% { transform: rotate(-10deg); }
-            50% { transform: rotate(10deg); }
         }
         
         .event-venue {
             font-size: 18px;
             color: var(--text-dark);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             line-height: 1.6;
         }
         
         .venue-name {
             font-weight: 600;
             color: var(--brown-dark);
-            font-size: 22px;
-            margin-bottom: 10px;
+            font-size: 20px;
+            margin-bottom: 8px;
             display: block;
         }
         
@@ -565,7 +324,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 16px 32px;
+            padding: 14px 28px;
             background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: var(--white);
             text-decoration: none;
@@ -573,53 +332,27 @@
             font-family: 'Crimson Text', serif;
             font-size: 16px;
             font-weight: 600;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
             border: none;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
         }
         
         .directions-btn::before {
             content: '📍';
             font-size: 20px;
-            transition: transform 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .directions-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-            pointer-events: none;
-        }
-        
-        .directions-btn:hover::after {
-            width: 300px;
-            height: 300px;
         }
         
         .directions-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-        }
-        
-        .directions-btn:hover::before {
-            transform: scale(1.2);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
         }
         
         /* Contact Section */
         .contact-section {
             background: var(--white);
-            padding: 70px 20px;
+            padding: 60px 20px;
             margin: 40px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 40px var(--shadow);
@@ -630,53 +363,39 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 30px;
         }
         
         .contact-card {
             text-align: center;
-            padding: 35px 20px;
+            padding: 30px 20px;
             background: var(--beige-primary);
             border-radius: 15px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
-            transition: left 0.6s ease;
-            pointer-events: none;
-        }
-        
-        .contact-card:hover::before {
-            left: 100%;
+            transition: transform 0.3s ease;
         }
         
         .contact-card:hover {
-            transform: scale(1.08) translateY(-5px);
-            box-shadow: 0 10px 30px var(--shadow);
+            transform: scale(1.05);
+        }
+        
+        .contact-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
         }
         
         .contact-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
             color: var(--brown-dark);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         
         .contact-phone {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
+            padding: 10px 20px;
             background: linear-gradient(135deg, var(--gold-light), var(--gold));
             color: var(--brown-dark);
             text-decoration: none;
@@ -689,12 +408,10 @@
         .contact-phone:hover {
             background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: var(--white);
-            transform: scale(1.05);
         }
         
         .contact-phone::before {
             content: '📞';
-            pointer-events: none;
         }
         
         .contact-buttons {
@@ -709,7 +426,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
+            padding: 10px 20px;
             background: linear-gradient(135deg, #25D366, #20BA5B);
             color: var(--white);
             text-decoration: none;
@@ -724,13 +441,12 @@
         
         .contact-whatsapp:hover {
             background: linear-gradient(135deg, #20BA5B, #1FAA50);
-            transform: translateY(-2px) scale(1.05);
+            transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
         }
         
         .contact-whatsapp::before {
             content: '💬';
-            pointer-events: none;
         }
         
         /* Names Grid for RSVP and Compliments */
@@ -738,44 +454,22 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 40px;
+            margin-top: 30px;
         }
         
         .name-card {
-            padding: 28px 20px;
+            padding: 25px 20px;
             background: var(--beige-primary);
             border-radius: 15px;
             text-align: center;
             border-left: 4px solid var(--gold);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .name-card::before {
-            content: '✧';
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 20px;
-            color: var(--gold);
-            opacity: 0;
-            transform: scale(0) rotate(-180deg);
-            transition: all 0.4s ease;
-            pointer-events: none;
-        }
-        
-        .name-card:hover::before {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
+            transition: all 0.3s ease;
         }
         
         .name-card:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 12px 25px var(--shadow);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--shadow);
             background: linear-gradient(135deg, var(--beige-primary), var(--gold-light));
-            border-left-color: var(--gold-dark);
-            border-left-width: 6px;
         }
         
         .name-card p {
@@ -784,76 +478,20 @@
             color: var(--text-dark);
             margin: 0;
             line-height: 1.5;
-            font-weight: 600;
         }
         
         /* Footer */
         .footer {
             text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(180deg, var(--beige-primary), var(--beige-secondary));
+            padding: 40px 20px;
+            background: var(--beige-secondary);
             color: var(--brown);
             font-size: 16px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .footer::before {
-            content: '♥';
-            position: absolute;
-            font-size: 100px;
-            color: var(--gold);
-            opacity: 0.05;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: heartbeat 2s ease-in-out infinite;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.1); }
         }
         
         .footer-ornament {
-            font-size: 28px;
-            margin-bottom: 20px;
-            animation: sparkle 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        /* Scroll to Top Button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
             font-size: 24px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-        
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .scroll-top:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+            margin-bottom: 15px;
         }
         
         /* Animations */
@@ -893,6 +531,11 @@
                 opacity: 1;
                 transform: translateX(0);
             }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
         
         @keyframes pulse {
@@ -998,55 +641,24 @@
             }
             
             .header {
-                padding: 80px 15px 60px;
+                padding: 60px 15px 40px;
             }
             
             .logo-placeholder {
-                width: 110px;
-                height: 110px;
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo-placeholder::before {
+                font-size: 40px;
             }
             
             .event-card {
-                padding: 35px 25px;
+                padding: 30px 20px;
             }
             
             .contact-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .countdown-section {
-                padding: 30px 15px;
-            }
-            
-            .countdown-title {
-                font-size: 20px;
-                margin-bottom: 20px;
-            }
-            
-            .countdown-timer {
-                gap: 10px;
-            }
-            
-            .countdown-box {
-                min-width: 70px;
-                padding: 12px 8px;
-                max-width: 100px;
-            }
-            
-            .countdown-number {
-                font-size: 32px;
-            }
-            
-            .countdown-label {
-                font-size: 11px;
-            }
-            
-            .scroll-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-                font-size: 20px;
             }
         }
         
@@ -1060,17 +672,12 @@
             }
             
             .event-card {
-                margin-bottom: 25px;
-            }
-            
-            .countdown-section {
-                padding: 40px 15px;
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
 <body>
-    
     <div class="ornate-bg"></div>
     
     <!-- Language Toggle -->
@@ -1078,9 +685,6 @@
         <button class="lang-btn active" data-lang="en">English</button>
         <button class="lang-btn" data-lang="ur">اردو</button>
     </div>
-    
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop">↑</button>
     
     <div class="container">
         <!-- Loading State -->
@@ -1114,38 +718,13 @@
                 </p>
             </header>
             
-            <!-- Countdown Timer Section -->
-            <section class="countdown-section">
-                <h2 class="countdown-title" data-en="Counting Down to Our Special Day" data-ur="ہمارے خاص دن کا شمار">
-                    Counting Down to Our Special Day
-                </h2>
-                <div class="countdown-timer" id="countdown">
-                    <div class="countdown-box">
-                        <span class="countdown-number" id="days">00</span>
-                        <span class="countdown-label" data-en="Days" data-ur="دن">Days</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-label" data-en="Hours" data-ur="گھنٹے">Hours</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-label" data-en="Minutes" data-ur="منٹ">Minutes</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-label" data-en="Seconds" data-ur="سیکنڈ">Seconds</span>
-                    </div>
-                </div>
-            </section>
-            
             <!-- Events Section -->
             <section class="events-section">
                 <h2 class="section-title" data-en="Wedding Events" data-ur="شادی کی تقریبات">Wedding Events</h2>
                 
                 <!-- Baraat Card -->
                 <div class="event-card baraat-card">
-                    <span class="event-type" data-en="Nikah Ceremony" data-ur="نکاح کی تقریب">Nikah Ceremony</span>
+                    <span class="event-type" data-en="Baraat Ceremony" data-ur="بارات کی تقریب">Baraat Ceremony</span>
                     <div class="event-date baraat-date"></div>
                     <div class="event-time baraat-time"></div>
                     <div class="event-venue">
@@ -1158,7 +737,7 @@
                 
                 <!-- Reception Card -->
                 <div class="event-card reception-card">
-                    <span class="event-type" data-en="Walima Ceremony" data-ur="ولیمہ کی تقریب">Walima Ceremony</span>
+                    <span class="event-type" data-en="Reception" data-ur="ولیمہ">Reception</span>
                     <div class="event-date reception-date"></div>
                     <div class="event-time reception-time"></div>
                     <div class="event-venue">
@@ -1186,7 +765,7 @@
             
             <!-- RSVP Section -->
             <section class="contact-section">
-                <h2 class="section-title" data-en="Humble Hosts" data-ur="منتظر">Humble Hosts</h2>
+                <h2 class="section-title" data-en="R.S.V.P." data-ur="جواب دیں">R.S.V.P.</h2>
                 
                 <div class="names-grid" id="rsvp-grid">
                     <div class="name-card">
@@ -1241,10 +820,9 @@
             
             <!-- Footer -->
             <footer class="footer">
-                <div class="footer-ornament" style="color: #d4af37; font-size: 1.5rem;">۞ ❁ ۞</div>
-                <p data-en="Your gracious presence and prayers will be a source of joy for us." 
-                data-ur="آپ کی شرکت اور دعائیں ہمارے لیے باعثِ مسرت ہوں گی">
-                    Your gracious presence and prayers will be a source of joy for us.
+                <div class="footer-ornament">❦ ❦ ❦</div>
+                <p data-en="Looking forward to celebrating with you" data-ur="آپ کے ساتھ جشن منانے کے منتظر ہیں">
+                    Looking forward to celebrating with you
                 </p>
             </footer>
         </div>
@@ -1257,46 +835,6 @@
         // Google Sheets Configuration
         const SHEET_ID = '1G7OKh0NmmLdOj9fzUqY9ogg4DCmdwEW1yYHBezlqzuQ';
         const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?headers=0&tq=select%20*`;
-        
-        // Wedding date for countdown
-        let weddingDate = null;
-        
-        // Countdown Timer
-        function updateCountdown() {
-            if (!weddingDate) return;
-            
-            const now = new Date().getTime();
-            const distance = weddingDate - now;
-            
-            if (distance < 0) {
-                document.getElementById('days').textContent = '00';
-                document.getElementById('hours').textContent = '00';
-                document.getElementById('minutes').textContent = '00';
-                document.getElementById('seconds').textContent = '00';
-                return;
-            }
-            
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = String(days).padStart(2, '0');
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-        }
-        
-        // Scroll to top button
-        function handleScrollTop() {
-            const scrollTop = document.getElementById('scrollTop');
-            
-            if (window.pageYOffset > 300) {
-                scrollTop.classList.add('visible');
-            } else {
-                scrollTop.classList.remove('visible');
-            }
-        }
         
         // Phone number formatter
         function formatPhoneNumber(number) {
@@ -1316,22 +854,26 @@
 
                 // Handle Google Sheets date serial number format
                 if (typeof dateStr === 'number') {
-                    const SHEETS_DATE_EPOCH = new Date(1899, 11, 30);
+                    // Google Sheets stores dates as serial numbers (days since 1900-01-01)
+                    const SHEETS_DATE_EPOCH = new Date(1899, 11, 30); // December 30, 1899
                     date = new Date(SHEETS_DATE_EPOCH.getTime() + dateStr * 24 * 60 * 60 * 1000);
                 } else if (typeof dateStr === 'string') {
                     // Handle Google Sheets Date(YYYY,M,D) format
                     const dateMatch = dateStr.match(/^Date\((\d{4}),(\d{1,2}),(\d{1,2})\)$/);
                     if (dateMatch) {
                         const year = parseInt(dateMatch[1]);
-                        const month = parseInt(dateMatch[2]);
+                        const month = parseInt(dateMatch[2]); // Already 0-indexed in this format
                         const day = parseInt(dateMatch[3]);
                         date = new Date(Date.UTC(year, month, day));
                     }
                     // Handle string format like "2026-03-29" or "3/29/2026"
                     else if (dateStr.includes('-') && dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                        // YYYY-MM-DD format
                         const [year, month, day] = dateStr.split('-');
+                        // Use UTC to avoid timezone issues
                         date = new Date(Date.UTC(parseInt(year), parseInt(month) - 1, parseInt(day)));
                     } else if (dateStr.includes('/')) {
+                        // MM/DD/YYYY format
                         date = new Date(dateStr);
                     } else {
                         date = new Date(dateStr);
@@ -1352,38 +894,6 @@
             }
         }
         
-        // Parse date for countdown
-        function parseDate(dateStr) {
-            try {
-                let date;
-                
-                if (typeof dateStr === 'number') {
-                    const SHEETS_DATE_EPOCH = new Date(1899, 11, 30);
-                    date = new Date(SHEETS_DATE_EPOCH.getTime() + dateStr * 24 * 60 * 60 * 1000);
-                } else if (typeof dateStr === 'string') {
-                    const dateMatch = dateStr.match(/^Date\((\d{4}),(\d{1,2}),(\d{1,2})\)$/);
-                    if (dateMatch) {
-                        const year = parseInt(dateMatch[1]);
-                        const month = parseInt(dateMatch[2]);
-                        const day = parseInt(dateMatch[3]);
-                        date = new Date(year, month, day);
-                    } else if (dateStr.includes('-') && dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
-                        const [year, month, day] = dateStr.split('-');
-                        date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-                    } else {
-                        date = new Date(dateStr);
-                    }
-                } else {
-                    return null;
-                }
-                
-                return isNaN(date.getTime()) ? null : date;
-            } catch (error) {
-                console.error('Error parsing date:', error);
-                return null;
-            }
-        }
-        
         // Fetch wedding data from Google Sheets
         function fetchWeddingData() {
             $.ajax({
@@ -1392,12 +902,15 @@
                 dataType: 'text',
                 success: function(response) {
                     try {
+                        // Parse the Google Sheets response
                         const jsonData = JSON.parse(response.substring(47).slice(0, -2));
                         const rows = jsonData.table.rows;
                         
                         if (rows && rows.length > 0) {
+                            // Convert transposed data (field_name, value) into an object
                             const weddingData = {};
                             rows.forEach((row, index) => {
+                                // Handle the case where cells might be empty
                                 const fieldName = row.c && row.c[0] ? row.c[0].v : '';
                                 const value = row.c && row.c[1] ? row.c[1].v : '';
 
@@ -1425,15 +938,6 @@
         // Populate the page with wedding data
         function populateWeddingData(data) {
             console.log('Wedding Data:', data);
-            
-            // Set wedding date for countdown
-            weddingDate = parseDate(data.baraat_date);
-            if (weddingDate) {
-                weddingDate = weddingDate.getTime();
-                updateCountdown();
-                setInterval(updateCountdown, 1000);
-            }
-            
             // Names - with line breaks
             const groom_bride_en = `${data.groom_name_en}<br>&<br>${data.bride_name_en}`;
             const groom_bride_ur = `${data.groom_name_ur}<br>❤<br>${data.bride_name_ur}`;
@@ -1456,8 +960,9 @@
             
             // Dynamically generate contact cards
             const contactGrid = $('#contact-grid');
-            contactGrid.empty();
+            contactGrid.empty(); // Clear existing cards
             
+            // Find all contacts (contact1_name, contact2_name, etc.)
             const contactNumbers = new Set();
             Object.keys(data).forEach(key => {
                 const match = key.match(/^contact(\d+)_name$/);
@@ -1466,6 +971,7 @@
                 }
             });
             
+            // Sort contact numbers and create cards
             Array.from(contactNumbers).sort((a, b) => a - b).forEach(num => {
                 const nameKey = `contact${num}_name`;
                 const phoneKey = `contact${num}_phone`;
@@ -1473,15 +979,17 @@
                 const phone = data[phoneKey] || '';
                 
                 if (name && phone) {
+                    // Clean phone number for WhatsApp (remove all non-digits)
                     const cleanPhone = String(phone).replace(/\D/g, '');
                     const whatsappPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
                     
                     const card = `
                         <div class="contact-card">
+                            <div class="contact-icon">👤</div>
                             <div class="contact-name">${name}</div>
                             <div class="contact-buttons">
                                 <a href="tel:+${phone}" class="contact-phone" dir="ltr">${formatPhoneNumber(phone)}</a>
-                                <a href="https://wa.me/?phone=${whatsappPhone}&text=Assalamualeikum" class="contact-whatsapp" target="_blank" dir="ltr">WhatsApp</a>
+                                <a href="https://wa.me/${whatsappPhone}" class="contact-whatsapp" target="_blank" dir="ltr">WhatsApp</a>
                             </div>
                         </div>
                     `;
@@ -1505,13 +1013,16 @@
         function switchLanguage(lang) {
             currentLang = lang;
             
+            // Update active button
             $('.lang-btn').removeClass('active');
             $(`.lang-btn[data-lang="${lang}"]`).addClass('active');
             
+            // Update all translatable elements
             $('[data-en]').each(function() {
                 const $elem = $(this);
                 const text = $elem.attr(`data-${lang}`);
                 if (text) {
+                    // Use html() for names-display to preserve line breaks, text() for others
                     if ($elem.hasClass('names-display')) {
                         $elem.html(text);
                     } else {
@@ -1520,9 +1031,11 @@
                 }
             });
             
+            // Update HTML lang attribute and direction
             if (lang === 'ur') {
                 $('html').attr('lang', 'ur').attr('dir', 'rtl');
                 $('.names-display').addClass('hindi-text');
+                // Prevent reversal of time and phone numbers in Urdu
                 $('.event-time, .contact-phone').attr('dir', 'ltr').css({
                     'flex-direction': 'row',
                     'justify-content': 'flex-start',
@@ -1531,6 +1044,7 @@
             } else {
                 $('html').attr('lang', 'en').attr('dir', 'ltr');
                 $('.names-display').removeClass('hindi-text');
+                // Remove dir attribute and inline styles for English
                 $('.event-time, .contact-phone').removeAttr('dir').css({
                     'flex-direction': '',
                     'justify-content': '',
@@ -1545,16 +1059,6 @@
             $('.lang-btn').on('click', function() {
                 const lang = $(this).data('lang');
                 switchLanguage(lang);
-            });
-            
-            // Scroll events
-            $(window).on('scroll', function() {
-                handleScrollTop();
-            });
-            
-            // Scroll to top button
-            $('#scrollTop').on('click', function() {
-                $('html, body').animate({ scrollTop: 0 }, 600);
             });
             
             // Fetch wedding data on page load
