@@ -285,17 +285,6 @@
             position: relative;
         }
         
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            animation: underlineExpand 1s ease-out 1.3s forwards;
-        }
         
         @keyframes underlineExpand {
             to { width: 80%; }
@@ -516,6 +505,17 @@
         .event-card:hover .event-type::before {
             width: 300px;
             height: 300px;
+        }
+        
+        .event-invitation {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(16px, 3vw, 18px);
+            color: var(--brown);
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out;
         }
         
         .event-date {
@@ -826,6 +826,85 @@
             50% { opacity: 0.5; }
         }
         
+        /* Grandfather Invitation & Couple Section Styles */
+        .grandfather-line {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(18px, 4vw, 22px);
+            color: var(--brown);
+            text-align: center;
+            margin: 30px 0 40px;
+            line-height: 1.8;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            max-width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .wedding-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(28px, 6vw, 38px);
+            font-weight: 600;
+            color: var(--brown-dark);
+            text-align: center;
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .couple-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0px;
+            margin: 40px 0;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .person-block {
+            text-align: center;
+            position: relative;
+            padding: 25px 30px;
+            transition: all 0.4s ease;
+        }
+        
+        .person-block:hover {
+            transform: scale(1.03);
+        }
+        
+        .person-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(32px, 7vw, 48px);
+            font-weight: 600;
+            color: var(--brown-dark);
+            margin: 0 0 12px 0;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        
+        .parent-name {
+            font-family: 'Crimson Text', serif;
+            font-size: 16px;
+            color: var(--brown);
+            margin: 0;
+            font-weight: 500;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+        
+        .and-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(24px, 5vw, 32px);
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        /* Scroll behavior for hash navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         /* Scroll to Top Button */
         .scroll-top {
             position: fixed;
@@ -1006,6 +1085,26 @@
                 height: 110px;
             }
             
+            .grandfather-line {
+                font-size: 16px;
+            }
+            
+            .wedding-title {
+                font-size: 24px;
+            }
+            
+            .person-name {
+                font-size: clamp(26px, 6vw, 40px);
+            }
+            
+            .parent-name {
+                font-size: 14px;
+            }
+            
+            .and-text {
+                font-size: 20px;
+            }
+            
             .event-card {
                 padding: 35px 25px;
             }
@@ -1100,22 +1199,40 @@
         <!-- Main Content -->
         <div id="main-content" class="hidden">
             <!-- Header -->
-            <header class="header">
+            <header id="header" class="header">
                 <div class="logo-container">
                     <div class="logo-placeholder"></div>
                 </div>
                 
+                <!-- Grandfather Invitation -->
+                <p class="grandfather-line" data-en="" data-ur="">
+                    Grandfather's invitation text
+                </p>
+                
                 <div class="ornate-divider"></div>
                 
-                <h1 class="names-display" data-en="" data-ur=""></h1>
+                <!-- Couple Section -->
+                <div class="couple-section">
+                    <!-- Groom -->
+                    <div class="person-block">
+                        <h1 class="person-name groom-name" data-en="" data-ur=""></h1>
+                        <p class="parent-name groom-father" data-en="" data-ur=""></p>
+                    </div>
+                    
+                    <div class="and-text" data-en="&" data-ur="❤">&</div>
+                    
+                    <!-- Bride -->
+                    <div class="person-block">
+                        <h1 class="person-name bride-name" data-en="" data-ur=""></h1>
+                        <p class="parent-name bride-father" data-en="" data-ur=""></p>
+                    </div>
+                </div>
                 
-                <p class="subtitle wedding-invitation" data-en="You are cordially invited to celebrate our wedding" data-ur="ہماری شادی کی تقریب میں آپ کو خوش آمدید">
-                    You are cordially invited to celebrate our wedding
-                </p>
+                <div class="ornate-divider"></div>
             </header>
             
             <!-- Countdown Timer Section -->
-            <section class="countdown-section">
+            <section id="countdownSection" class="countdown-section">
                 <h2 class="countdown-title" data-en="Counting Down to Our Special Day" data-ur="ہمارے خاص دن کا شمار">
                     Counting Down to Our Special Day
                 </h2>
@@ -1140,7 +1257,7 @@
             </section>
             
             <!-- Events Section -->
-            <section class="events-section">
+            <section id="weddingEvents" class="events-section">
                 <h2 class="section-title" data-en="Wedding Events" data-ur="شادی کی تقریبات">Wedding Events</h2>
                 
                 <!-- Baraat Card -->
@@ -1171,7 +1288,7 @@
             </section>
             
             <!-- Contact Section -->
-            <section class="contact-section">
+            <section id="contactSection" class="contact-section">
                 <h2 class="section-title" data-en="Contact Us" data-ur="ہم سے رابطہ کریں">Contact Us</h2>
                 <p style="text-align: center; margin-bottom: 10px; color: var(--brown);">
                     <span data-en="For any queries, please feel free to contact:" data-ur="کسی بھی سوال کے لیے، براہ کرم رابطہ کریں:">
@@ -1185,62 +1302,62 @@
             </section>
             
             <!-- RSVP Section -->
-            <section class="contact-section">
+            <section id="humbleHosts" class="contact-section">
                 <h2 class="section-title" data-en="Humble Hosts" data-ur="منتظر">Humble Hosts</h2>
                 
                 <div class="names-grid" id="rsvp-grid">
                     <div class="name-card">
-                        <p>Haji Mohammad Murtaza</p>
+                        <p data-en="Haji Mohammad Murtaza" data-ur="حاجی محمد مرتضیٰ">Haji Mohammad Murtaza</p>
                     </div>
                     <div class="name-card">
-                        <p>Haji Mohammad Murslin</p>
+                        <p data-en="Haji Mohammad Murslin" data-ur="حاجی محمد مرسلین">Haji Mohammad Murslin</p>
                     </div>
                     <div class="name-card">
-                        <p>Haji Ahsan Ali</p>
+                        <p data-en="Haji Ahsan Ali" data-ur="حاجی احسن علی">Haji Ahsan Ali</p>
                     </div>
                     <div class="name-card">
-                        <p>Mohammad Imran</p>
+                        <p data-en="Mohammad Imran" data-ur="محمد عمران">Mohammad Imran</p>
                     </div>
                     <div class="name-card">
-                        <p>Qari Mohammad Rizwan</p>
+                        <p data-en="Qari Mohammad Rizwan" data-ur="قاری محمد رضوان ">Qari Mohammad Rizwan</p>
                     </div>
                     <div class="name-card">
-                        <p>Mohammad Sajid</p>
+                        <p data-en="Mohammad Sajid" data-ur="محمد ساجد">Mohammad Sajid</p>
                     </div>
                 </div>
             </section>
             
             <!-- Best Compliments Section -->
-            <section class="contact-section">
+            <section id="bestCompliments" class="contact-section">
                 <h2 class="section-title" data-en="With Best Compliments From" data-ur="بہترین مبارکباد کے ساتھ">With Best Compliments From</h2>
                 
                 <div class="names-grid" id="compliments-grid">
                     <div class="name-card">
-                        <p>Meharbaan Ali</p>
+                        <p data-en="Meharbaan Ali" data-ur="مہربان علی">Meharbaan Ali</p>
                     </div>
                     <div class="name-card">
-                        <p>Mohammad Azhar</p>
+                        <p data-en="Mohammad Azhar" data-ur="محمد اظہر">Mohammad Azhar</p>
                     </div>
                     <div class="name-card">
-                        <p>Mohammad Arshad</p>
+                        <p data-en="Mohammad Arshad" data-ur="محمد ارشد">Mohammad Arshad</p>
                     </div>
                     <div class="name-card">
-                        <p>Mohammad Aabid</p>
+                        <p data-en="Mohammad Aabid" data-ur="محمد عابد">Mohammad Aabid</p>
                     </div>
                     <div class="name-card">
-                        <p>Mohammad Kaif</p>
+                        <p data-en="Mohammad Kaif" data-ur="محمد کیف">Mohammad Kaif</p>
                     </div>
                     <div class="name-card">
-                        <p>Mohammad Ahtasham</p>
+                        <p data-en="Mohammad Ahtasham" data-ur="محمد احتشام">Mohammad Ahtasham</p>
                     </div>
                     <div class="name-card">
-                        <p>Mohammad Adnan</p>
+                        <p data-en="Mohammad Adnan" data-ur="محمد عدنان">Mohammad Adnan</p>
                     </div>
                 </div>
             </section>
             
             <!-- Footer -->
-            <footer class="footer">
+            <footer id="footer" class="footer">
                 <div class="footer-ornament" style="color: #d4af37; font-size: 1.5rem;">۞ ❁ ۞</div>
                 <p data-en="Your gracious presence and prayers will be a source of joy for us." 
                 data-ur="آپ کی شرکت اور دعائیں ہمارے لیے باعثِ مسرت ہوں گی">
@@ -1434,13 +1551,40 @@
                 setInterval(updateCountdown, 1000);
             }
             
-            // Names - with line breaks
-            const groom_bride_en = `${data.groom_name_en}<br>&<br>${data.bride_name_en}`;
-            const groom_bride_ur = `${data.groom_name_ur}<br>❤<br>${data.bride_name_ur}`;
+            // Grandfather Invitation
+            const grandfatherEn = data.grandfather_name_en || '';
+            const grandfatherUr = data.grandfather_name_ur || '';
             
-            $('.names-display').attr('data-en', groom_bride_en);
-            $('.names-display').attr('data-ur', groom_bride_ur);
-            $('.names-display').html(groom_bride_en);
+            const groomEn = data.groom_name_en || '';
+            const groomUr = data.groom_name_ur || '';
+            const brideEn = data.bride_name_en || '';
+            const brideUr = data.bride_name_ur || '';
+            
+            // Create invitation
+            const InvitationEn = `${grandfatherEn} cordially invites you to attend the wedding ceremony of his grandson`;
+            const InvitationUr = `${grandfatherUr} اپنے پوتے کی شادی کی تقریب میں آپ کو شرکت کی دعوت دیتے ہیں۔`;
+            
+            // Set header grandfather invitation (Nikah)
+            $('.grandfather-line').attr('data-en', InvitationEn).attr('data-ur', InvitationUr);
+            $('.grandfather-line').text(InvitationEn);
+            
+            // Groom Name and Father
+            const groomNameEn = data.groom_name_en || '';
+            const groomNameUr = data.groom_name_ur || '';
+            const groomFatherEn = `Son of ${data.groom_father_en || ''}`;
+            const groomFatherUr = `فرزند ${data.groom_father_ur || ''}`;
+            
+            $('.groom-name').attr('data-en', groomNameEn).attr('data-ur', groomNameUr).text(groomNameEn);
+            $('.groom-father').attr('data-en', groomFatherEn).attr('data-ur', groomFatherUr).text(groomFatherEn);
+            
+            // Bride Name and Father
+            const brideNameEn = data.bride_name_en || '';
+            const brideNameUr = data.bride_name_ur || '';
+            const brideFatherEn = `Daughter of ${data.bride_father_en || ''}`;
+            const brideFatherUr = `دختر ${data.bride_father_ur || ''}`;
+            
+            $('.bride-name').attr('data-en', brideNameEn).attr('data-ur', brideNameUr).text(brideNameEn);
+            $('.bride-father').attr('data-en', brideFatherEn).attr('data-ur', brideFatherUr).text(brideFatherEn);
             
             // Baraat Event
             $('.baraat-date').text(formatDate(data.baraat_date));
@@ -1512,7 +1656,7 @@
                 const $elem = $(this);
                 const text = $elem.attr(`data-${lang}`);
                 if (text) {
-                    if ($elem.hasClass('names-display')) {
+                    if ($elem.hasClass('names-display') || $elem.hasClass('person-name')) {
                         $elem.html(text);
                     } else {
                         $elem.text(text);
@@ -1522,7 +1666,7 @@
             
             if (lang === 'ur') {
                 $('html').attr('lang', 'ur').attr('dir', 'rtl');
-                $('.names-display').addClass('hindi-text');
+                $('.person-name').addClass('hindi-text');
                 $('.event-time, .contact-phone').attr('dir', 'ltr').css({
                     'flex-direction': 'row',
                     'justify-content': 'flex-start',
@@ -1530,7 +1674,7 @@
                 });
             } else {
                 $('html').attr('lang', 'en').attr('dir', 'ltr');
-                $('.names-display').removeClass('hindi-text');
+                $('.person-name').removeClass('hindi-text');
                 $('.event-time, .contact-phone').removeAttr('dir').css({
                     'flex-direction': '',
                     'justify-content': '',
